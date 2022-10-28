@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: "build image"
         id: latest_tag
-        run: ./build.sh
+        run: docker build . --build-arg GOOS=linux --build-arg GOARCH=amd64 --progress=plain -f drone-nolimit.Dockerfile -t drone-nolimit:$(date +%s)
 #     - uses: actions/checkout@v3
 #     - name: Build the Docker image
 #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
