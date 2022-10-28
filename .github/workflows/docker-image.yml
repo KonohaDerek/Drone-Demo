@@ -18,6 +18,12 @@ jobs:
 #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     # You may pin to the exact commit or the version.
     # uses: shinhwagk/remote-bash@c03b11eac4cceccef56a495916311d9d49875f4d
-    - uses: shinhwagk/remote-bash@0.0.1
-    - name: remote-bash
-      run: build.sh
+    - uses: jdickey/bash@v.1.1.1
+    - name: Bash Command Lines for GitHub Actions
+      # You may pin to the exact commit or the version.
+      # uses: jdickey/bash@bc09809bde62634bf1f6fdfc820428e7ac10eea4
+      run: ./build.sh
+     
+      
+      
+      
