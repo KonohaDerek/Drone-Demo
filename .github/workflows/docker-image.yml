@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Release Docker Image To Package
 
 on:
   push:
@@ -11,17 +11,15 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    # build docker image and push to github package
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: "Get latest tag"
+      - name: "build image"
         id: latest_tag
         run: ./build.sh
-        
-        
 #     - uses: actions/checkout@v3
 #     - name: Build the Docker image
 #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
