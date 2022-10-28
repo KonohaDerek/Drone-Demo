@@ -13,16 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: "Get latest tag"
+        id: latest_tag
+        run: ./build.sh
+        
+        
 #     - uses: actions/checkout@v3
 #     - name: Build the Docker image
 #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    # You may pin to the exact commit or the version.
-    # uses: shinhwagk/remote-bash@c03b11eac4cceccef56a495916311d9d49875f4d
-    - uses: jdickey/bash@v.1.1.1
-    - name: Bash Command Lines for GitHub Actions
-      # You may pin to the exact commit or the version.
-      # uses: jdickey/bash@bc09809bde62634bf1f6fdfc820428e7ac10eea4
-      run: ./build.sh
      
       
       
