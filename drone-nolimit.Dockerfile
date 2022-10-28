@@ -9,8 +9,8 @@ RUN git clone -b v2.14.0 --depth=1 https://github.com/drone/drone
 WORKDIR drone
 RUN go mod tidy
 RUN go mod vendor
-RUN GOARCH=${GOARCH} CGO_ENABLED=1 GOOS=${GOOS} CC=aarch64-linux-gnu-gcc go build -o /dev/null -tags "nolimit" github.com/drone/drone/cmd/drone-server
-RUN GOARCH=${GOARCH} CGO_ENABLED=1 GOOS=${GOOS} CC=aarch64-linux-gnu-gcc go build -ldflags "-w -s -extldflags \"-static\"" -tags "nolimit"  -o /go/bin/${GOOS}_${GOARCH}/drone-server github.com/drone/drone/cmd/drone-server
+RUN GOARCH=${GOARCH} CGO_ENABLED=1 GOOS=${GOOS} go build -o /dev/null -tags "nolimit" github.com/drone/drone/cmd/drone-server
+RUN GOARCH=${GOARCH} CGO_ENABLED=1 GOOS=${GOOS} go build -ldflags "-w -s -extldflags \"-static\"" -tags "nolimit"  -o /go/bin/${GOOS}_${GOARCH}/drone-server github.com/drone/drone/cmd/drone-server
 
 FROM alpine:3.11
 
