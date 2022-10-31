@@ -4,7 +4,8 @@ services:
   drone-server:
     env_file: .env
     # image: drone/drone
-    image: test/drone-nolimit
+    # image: test/drone-nolimit
+    image: ghcr.io/konohaderek/drone-demo:main
     ports:
       - 8081:80
       - 4433:443
