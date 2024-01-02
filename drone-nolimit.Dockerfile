@@ -3,7 +3,7 @@ ARG GOARCH
 ARG GOOS
 RUN dpkg --add-architecture amd64
 RUN apt-get update && apt-get install -y --no-install-recommends gcc-x86-64-linux-gnu libc6-dev-amd64-cross ca-certificates tzdata
-RUN git clone -b v2.14.0 --depth=1 https://github.com/drone/drone
+RUN git clone -b v2.21.0 --depth=1 https://github.com/drone/drone
 # RUN cd drone && GOOS=linux GOARCH=amd64 go install -trimpath -ldflags='-w -s' -tags nolimit ./cmd/drone-server
 # RUN cd drone && GOARCH=${GOARCH} CGO_ENABLED=1 GOOS=${GOOS} go build  -gcflags=-trimpath=$GOPATH -asmflags=-trimpath=$GOPATH -ldflags "-w -s -extldflags \"-static\"" -o /go/bin/${GOOS}_${GOARCH}/drone-server ./cmd/drone-server
 WORKDIR drone
